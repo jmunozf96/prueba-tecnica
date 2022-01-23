@@ -1,6 +1,6 @@
 # prueba-tecnica
 
-Backend
+#Backend
 
-Java Spring Boot
-Mongo DV
+#Java Spring Boot
+#Mongo DV
