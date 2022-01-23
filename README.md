@@ -1,1 +1,5 @@
 # prueba-tecnica
+
+FrontEnd
+
+Angular
