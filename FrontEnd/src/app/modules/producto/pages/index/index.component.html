@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-center">
+      <h4>Listado de Productos</h4>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-primary" (click)="open()">Agregar producto</button>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-12">
+      <app-list-products
+        (update)="update($event)"
+        (delete)="delete($event)"
+      ></app-list-products>
+    </div>
+  </div>
+</div>

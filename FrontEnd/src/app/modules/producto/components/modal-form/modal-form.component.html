@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+    {{edit ? 'Actualizar' : 'Registrar'}} Producto
+  </h4>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="email" class="form-control" formControlName="nombre" placeholder="Ingrese nombre de producto">
+      <ng-container [ngTemplateOutlet]="error" [ngTemplateOutletContext]="{formName: 'nombre'}"></ng-container>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Categoria</label>
+      <select class="form-select" formControlName="categoria" aria-label="Default select example">
+        <option value="">Ninguno</option>
+        <option [value]="categoria.value" *ngFor="let categoria of categorias">
+          {{categoria.nombre}} - {{categoria.descripcion}}
+        </option>
+      </select>
+      <ng-container [ngTemplateOutlet]="error" [ngTemplateOutletContext]="{formName: 'categoria'}"></ng-container>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Precio</label>
+      <input type="number" class="form-control" formControlName="precio" placeholder="Ingrese precio de producto">
+      <ng-container [ngTemplateOutlet]="error" [ngTemplateOutletContext]="{formName: 'precio'}"></ng-container>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="activeModal.close(null)">
+    Cancelar
+  </button>
+  <button type="button" class="btn btn-success" (click)="guardar()">
+    {{edit ? 'Actualizar' : 'Guardar'}}
+  </button>
+</div>
+
+<ng-template #error let-formName="formName">
+  <ng-container *ngIf="form.controls[formName].invalid && (form.controls[formName].dirty || form.controls[formName].touched)">
+    <small class="text-danger"><em>El campo es obligatorio</em></small>
+  </ng-container>
+</ng-template>
