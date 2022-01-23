@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      host: imageMongoDb
+      port: 27017
+      database: pruebaBackend
+      authentication-database: admin
+  main:
+    allow-bean-definition-overriding: true

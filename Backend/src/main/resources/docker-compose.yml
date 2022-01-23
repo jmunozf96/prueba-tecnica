@@ -1,0 +1,23 @@
+version: "3"
+services:
+  imageMongoDb:
+    image: mongo:latest
+    container_name: imageMongoDb
+    networks:
+      - gateway
+    ports:
+      - "27017:27017"
+    volumes:
+      - ../../../mongo/data/db:/data/db
+  springboot-mongodb:
+    image: springboot-mongodb:1.0
+    container_name: springboot-mongodb
+    networks:
+      - gateway
+    ports:
+      - "8080:8080"
+    links:
+      - imageMongoDb
+networks:
+  gateway:
+    driver: "bridge"
