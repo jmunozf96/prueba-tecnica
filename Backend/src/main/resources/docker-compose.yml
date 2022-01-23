@@ -9,9 +9,9 @@ services:
       - "27017:27017"
     volumes:
       - ../../../mongo/data/db:/data/db
-  springboot-mongodb:
-    image: springboot-mongodb:1.0
-    container_name: springboot-mongodb
+  prueba-springboot:
+    image: prueba-springboot:1.0
+    container_name: prueba-springboot
     networks:
       - gateway
     ports:
